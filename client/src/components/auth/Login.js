@@ -24,6 +24,7 @@ const Login = () => {
 	};
 	useEffect(() => {
 		if (loginErrors.length > 0) {
+			console.log(loginErrors);
 			loginErrors.map((error) => toast.error(error.msg));
 			dispatch({type:REMOVE_LOGIN_ERRORS})
 		}

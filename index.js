@@ -16,13 +16,17 @@ app.use('/',cors(), postRoutes);
 app.use('/', cors(),profileRoutes);
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join('/client/build/')));
+	app.use(express.static(path.join('client/build/')));
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
+}else{
+  app.get("/",(req,res)=>{
+     res.send("APi");
+  })
 }
 
-app.use("/images", express.static(path.join(__dirname, "/images")));
+// app.use("/images", express.static(path.join(__dirname, "/images")));
 
 mongoose
   .connect(process.env.MONGO_URL, {
