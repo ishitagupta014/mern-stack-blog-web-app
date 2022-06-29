@@ -45,7 +45,7 @@ module.exports.createPost = (req, res) => {
 		if (errors.length !== 0) {
 			return res.status(400).json({ errors, files });
 		} else {
-			const newPath = __dirname + `/../images/${files.image.name}`;
+			const newPath = __dirname + `/../client/build/images/${files.image.name}`;
 			console.log("New Path"+newPath)
 			fs.copyFile(files.image.path, newPath, async (error) => {
 				if (!error) {
@@ -156,7 +156,8 @@ module.exports.updateImage = (req, res) => {
 		if (imageErrors.length !== 0) {
 			return res.status(400).json({ errors: imageErrors });
 		} else {
-			const newPath = __dirname + `/../images/${files.image.name}`;
+			const newPath =  __dirname + `/../client/build/images/${files.image.name}`;
+			console.log(newPath)
 			fs.copyFile(files.image.path, newPath, async (error) => {
 				if (!error) {
 					try {
@@ -199,6 +200,7 @@ module.exports.home = async (req, res) => {
 			.skip(skip)
 			.limit(perPage)
 			.sort({ updatedAt: -1 });
+			console.log(posts);
 		return res.status(200).json({ response: posts, count, perPage });
 	} catch (error) {
 		return res.status(500).json({ errors: error, msg: error.message });
@@ -236,8 +238,8 @@ module.exports.postComment = async (req, res) => {
 
 const clearImage = filePath => {
 	//console.log(__dirname +'\\..\\images\\'+filePath)
-	filePath = path.join(__dirname, '\\..\\images\\', filePath);
-	//console.log("file"+filePath);
+	filePath = path.join(__dirname, '\\..\\client\\build\\images\\', filePath);
+	console.log("file"+filePath);
 	fs.unlink(filePath, err => console.log(err));
   };
   

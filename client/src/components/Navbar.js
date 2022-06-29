@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { LOGOUT } from '../store/types/UserTypes';
 import { useEffect,useState} from 'react';
-import logo from '../images/logo.png'
-
 const Navbar = () => {
 	const { user } = useSelector((state) => state.AuthReducer);
 	const [val,setVal]=useState('');
@@ -43,7 +41,7 @@ const Navbar = () => {
 				<div className='navbar__row'>
 					<div className='navbar__left'>
 						<Link to='/'>
-							<img src={logo} alt='' />
+							<img src="/images/logo.png" alt='' />
 						</Link>
 					</div>
 					{Links}
