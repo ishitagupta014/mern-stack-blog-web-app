@@ -95,3 +95,29 @@
     margin-top: .6rem;
     margin-left: 5rem;
 }
+
+main .site-title{
+    background: url('/images/Background-image.png');
+    opacity: 0.7;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+main .site-title .site-background{
+    padding-top: 10rem;
+    text-align: center;
+    color: var(--white);
+}
+
+main .site-title .btn{
+    margin: 4rem;
+    background: var(--blue);
+}
+
+main .site-title .btn:hover{
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+}

@@ -43,7 +43,7 @@ export const postLogin = (state) => {
 			dispatch({ type: SET_LOADER });
 			console.log(state);
 			const { data } = await axios.post('/login', state, config);
-			console.log(data)
+			//console.log(data)
 			dispatch({ type: CLOSE_LOADER });
 			localStorage.setItem('myToken', data.token);
 			dispatch({ type: SET_TOKEN, payload: data.token });

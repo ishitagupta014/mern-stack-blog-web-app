@@ -70,7 +70,15 @@ const Home = () => {
 									</div>
 								))
 							) : (
-								'No posts'
+								<main>
+									 <section class="site-title">
+										<div class="site-background">
+											<button class="btn" >
+												<h6 style={{"fontSize": 90}}>No Posts</h6>
+											</button>
+										</div>
+									  </section>
+								</main>
 							)
 						) : (
 							<Loader />
